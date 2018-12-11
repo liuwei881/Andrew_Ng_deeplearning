@@ -59,4 +59,11 @@ test_set_x = test_set_x_flatten/255
 # 标准化数据
 #- “Standardize” the data
 
+# In this exercise, you will carry out the following steps:
+# - Initialize the parameters of the model
+# - Learn the parameters for the model by minimizing the cost
+# - Use the learned parameters to make predictions (on the test set)
+# - Analyse the results and conclude
+
+
 
