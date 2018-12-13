@@ -298,14 +298,82 @@ def nn_model(X, Y, n_h, num_iterations=10000, print_cost=False):
     return parameters
 
 
-X_assess, Y_assess = nn_model_test_case()
-parameters = nn_model(X_assess, Y_assess, 4, num_iterations=10000, print_cost=True)
-print("W1 = " + str(parameters["W1"]))
-print("b1 = " + str(parameters["b1"]))
-print("W2 = " + str(parameters["W2"]))
-print("b2 = " + str(parameters["b2"]))
+# X_assess, Y_assess = nn_model_test_case()
+# parameters = nn_model(X_assess, Y_assess, 4, num_iterations=10000, print_cost=True)
+# print("W1 = " + str(parameters["W1"]))
+# print("b1 = " + str(parameters["b1"]))
+# print("W2 = " + str(parameters["W2"]))
+# print("b2 = " + str(parameters["b2"]))
 
 
+def predict(parameters, X):
+    """
+    Using the learned parameters, predicts a class for each example in X
+
+    Arguments:
+    parameters -- python dictionary containing your parameters
+    X -- input data of size (n_x, m)
+
+    Returns
+    predictions -- vector of predictions of our model (red: 0 / blue: 1)
+    """
+    A2, cache = forward_propagation(X, parameters)
+    predictions = (A2 > 0.5)
+    return predictions
 
 
+parameters = nn_model(X, Y, n_h=4, num_iterations=10000, print_cost=True)
 
+# Plot the decision boundary
+# plot_decision_boundary(lambda x: predict(parameters, x.T), X, Y)
+# plt.title("Decision Boundary for hidden layer size " + str(4))
+# plt.show()
+
+predictions = predict(parameters, X)
+print('Accuracy: %d' % float((np.dot(Y, predictions.T) + np.dot(1-Y, 1-predictions.T)) / float(Y.size)*100) + '%')
+
+plt.figure(figsize=(16, 32))
+hidden_layer_sizes = [1, 2, 3, 4, 5, 10]
+for i, n_h in enumerate(hidden_layer_sizes):
+    plt.subplot(5, 2, i+1)
+    plt.title('Hidden Layer of size %d' % n_h)
+    parameters = nn_model(X, Y, n_h, num_iterations=5000)
+    plot_decision_boundary(lambda x: predict(parameters, x.T), X, Y)
+    predictions = predict(parameters, X)
+    accuracy = float((np.dot(Y, predictions.T) + np.dot(1-Y, 1-predictions.T)) / float(Y.size)*100)
+    print("Accuracy for {} hidden units: {} %".format(n_h, accuracy))
+
+
+# Interpretation:
+# - The larger models (with more hidden units) are able to fit the training set better,
+# until eventually the largest models overfit the data.
+# - The best hidden layer size seems to be around n_h = 5.
+# Indeed, a value around here seems to fits the data well without also incurring noticable overfitting.
+# - You will also learn later about regularization,
+# which lets you use very large models (such as n_h = 50) without much overfitting.
+
+# Optional questions:
+#
+# Note: Remember to submit the assignment but clicking the blue “Submit Assignment” button at the upper-right.
+#
+# Some optional/ungraded questions that you can explore if you wish:
+# - What happens when you change the tanh activation for a sigmoid activation or a ReLU activation?
+# - Play with the learning_rate. What happens?
+# - What if we change the dataset? (See part 5 below!)
+
+# noisy_circles, noisy_moons, blobs, gaussian_quantiles, no_structure = load_extra_datasets()
+#
+# datasets = {"noisy_circles": noisy_circles,
+#             "noisy_moons": noisy_moons,
+#             "blobs": blobs,
+#             "gaussian_quantiles": gaussian_quantiles}
+#
+# dataset = "noisy_moons"
+#
+# X, Y = datasets[dataset]
+# X, Y = X.T, Y.reshape(1, Y.shape[0])
+#
+# if dataset == "blobs":
+#     Y = Y % 2
+# plt.scatter(X[0, :], X[1, :], c=Y[0], s=40, cmap=plt.cm.Spectral)
+# plt.show()
