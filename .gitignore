@@ -10,3 +10,6 @@
 1_4/Building_DNN/__pycache__/dnn_utils_v2.cpython-36.pyc
 1_4/Building_DNN/__pycache__/testCases_v3.cpython-36.pyc
 1_4/DNN_for_Image_Classification/__pycache__/dnn_app_utils_v2.cpython-36.pyc
+2_1/Initialization_Regularization_Gradient_Checking/Initialization/__pycache__/init_utils.cpython-36.pyc
+2_1/Initialization_Regularization_Gradient_Checking/Regularization/__pycache__/reg_utils.cpython-36.pyc
+2_1/Initialization_Regularization_Gradient_Checking/Regularization/__pycache__/testCases.cpython-36.pyc

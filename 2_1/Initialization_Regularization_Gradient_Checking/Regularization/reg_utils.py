@@ -81,11 +81,8 @@ def initialize_parameters(layer_dims):
     for l in range(1, L):
         parameters['W' + str(l)] = np.random.randn(layer_dims[l], layer_dims[l-1]) / np.sqrt(layer_dims[l-1])
         parameters['b' + str(l)] = np.zeros((layer_dims[l], 1))
-        
         assert(parameters['W' + str(l)].shape == layer_dims[l], layer_dims[l-1])
         assert(parameters['W' + str(l)].shape == layer_dims[l], 1)
-
-        
     return parameters
 
 def forward_propagation(X, parameters):
@@ -331,6 +328,6 @@ def load_2D_dataset():
     test_X = data['Xval'].T
     test_Y = data['yval'].T
 
-    plt.scatter(train_X[0, :], train_X[1, :], c=train_Y, s=40, cmap=plt.cm.Spectral);
+    plt.scatter(train_X[0, :], train_X[1, :], c=train_Y[0], s=40, cmap=plt.cm.Spectral)
     
     return train_X, train_Y, test_X, test_Y
