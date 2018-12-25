@@ -18,3 +18,12 @@
 2_2/optimization/__pycache__/opt_utils.cpython-36.pyc
 2_2/optimization/__pycache__/testCases.cpython-36.pyc
 2_3/__pycache__/tf_utils.cpython-36.pyc
+2_3/datasets/test/bank_detail_test.txt
+2_3/datasets/test/bank_detail_test.txt
+2_3/datasets/test/user_info_test.txt
+.gitattributes
+2_3/datasets/test/bank_detail_test.txt
+2_3/datasets/test/usersID_test.txt
+2_3/datasets/test/user_info_test.txt
+2_3/datasets/test/loan_time_test.txt
+2_3/datasets/test/bill_detail_test.txt
