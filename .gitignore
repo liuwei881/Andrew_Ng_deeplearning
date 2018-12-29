@@ -28,3 +28,4 @@
 2_3/datasets/test/loan_time_test.txt
 2_3/datasets/test/bill_detail_test.txt
 4_1/__pycache__/cnn_utils.cpython-36.pyc
+4_2/__pycache__/kt_utils.cpython-36.pyc
