@@ -35,3 +35,4 @@
 4_3/yad2k/models/__pycache__/keras_yolo.cpython-36.pyc
 4_3/__pycache__/yolo_utils.cpython-36.pyc
 *.h5
+4_2/resnet/__pycache__/resnets_utils.cpython-36.pyc
