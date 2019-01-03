@@ -29,3 +29,9 @@
 2_3/datasets/test/bill_detail_test.txt
 4_1/__pycache__/cnn_utils.cpython-36.pyc
 4_2/__pycache__/kt_utils.cpython-36.pyc
+4_3/yad2k/utils/__pycache__/__init__.cpython-36.pyc
+4_3/yad2k/utils/__pycache__/utils.cpython-36.pyc
+4_3/yad2k/models/__pycache__/keras_darknet19.cpython-36.pyc
+4_3/yad2k/models/__pycache__/keras_yolo.cpython-36.pyc
+4_3/__pycache__/yolo_utils.cpython-36.pyc
+*.h5
